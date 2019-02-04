@@ -1,4 +1,20 @@
-/* cc -o serv serv.c -lrt */
+/* Andre Augusto Giannotti Scota (a2gs)                              
+ * andre.scota@gmail.com
+ *
+ * A POSIX Message Queue server sample
+ *
+ * Public Domain
+ *
+ */
+
+/* <file name>
+ * <File description>
+ *
+ *  Who     | When       | What
+ *  --------+------------+----------------------------
+ *   a2gs   | 01/01/2005 | Creation
+ *          |            |
+ */
 
 #include "comum.h"
 
@@ -10,13 +26,13 @@
 #include <errno.h>
 #include <mqueue.h>
 
-
-int main(){
+int main(int argc, char *argv[])
+{
 	mqd_t queue;
-	char msg[MSG_SIZE + 1], text[TEXT_SIZE + 1], szStr[TEXTSIZE_SIZE + 1];
-	unsigned int prio;
+	char msg[MSG_SIZE + 1] = {0}, text[TEXT_SIZE + 1] = {0}, szStr[TEXTSIZE_SIZE + 1] = {0};
+	unsigned int prio = 0;
 	struct mq_attr attr;
-	unsigned int sz;
+	unsigned int sz = 0;
 
 	attr.mq_maxmsg = 10;
 	attr.mq_msgsize = MSG_SIZE;
