@@ -1,4 +1,20 @@
-/* cc -o client client.c -lrt */
+/* Andre Augusto Giannotti Scota (a2gs)                              
+ * andre.scota@gmail.com
+ *
+ * A POSIX Message Queue client sample
+ *
+ * Public Domain
+ *
+ */
+
+/* <file name>
+ * <File description>
+ *
+ *  Who     | When       | What
+ *  --------+------------+----------------------------
+ *   a2gs   | 01/01/2005 | Creation
+ *          |            |
+ */
 
 #include "comum.h"
 #include <stdio.h>
@@ -8,11 +24,12 @@
 #include <errno.h>
 #include <mqueue.h>
 
-int main(){
+int main(int argc, char*argv[])
+{
 	mqd_t queue;
-	char msg[MSG_SIZE], text[TEXT_SIZE], *chr;
+	char msg[MSG_SIZE] = {0}, text[TEXT_SIZE] = {0}, *chr = NULL;
 	struct mq_attr attr;
-	unsigned int sz;
+	unsigned int sz = 0;
 
 	if((queue =  mq_open(QUEUE_FILE, O_WRONLY|O_NONBLOCK, 0777, NULL)) == -1){
 		printf("Erro mq_open(): %s\n", strerror(errno));
