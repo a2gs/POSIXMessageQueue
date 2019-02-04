@@ -4,7 +4,7 @@ clean:
 	-rm serv client
 
 serv:
-	cc -o serv serv.c -Wall -lrt
+	cc -o serv serv.c -Wall -lrt -std=c11
 
 client:
-	cc -o client client.c -Wall -lrt
+	cc -o client client.c -Wall -lrt -std=c11
