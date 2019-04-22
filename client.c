@@ -3,7 +3,7 @@
  *
  * A POSIX Message Queue client sample
  *
- * Public Domain
+ * MIT License
  *
  */
 
